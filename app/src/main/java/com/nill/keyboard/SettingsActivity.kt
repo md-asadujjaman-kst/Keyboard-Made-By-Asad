@@ -175,7 +175,7 @@ class SettingsActivity : AppCompatActivity() {
         tv.setText(text)
         tv.textSize = 13f
         tv.setTextColor(Color.parseColor("#666666"))
-        tv.lineSpacingMultiplier = 1.4f
+        tv.setLineSpacing(0f, 1.4f)
         val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         lp.setMargins(0, dp(4), 0, dp(8))
         tv.layoutParams = lp
