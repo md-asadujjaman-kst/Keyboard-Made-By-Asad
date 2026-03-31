@@ -42,10 +42,9 @@ class SettingsActivity : AppCompatActivity() {
         root.orientation = LinearLayout.VERTICAL
         root.setPadding(dp(20), dp(16), dp(20), dp(40))
 
-        // THEME
         root.addView(header("Theme"))
         val swDark = Switch(this)
-        swDark.text = "  Dark Theme"
+        swDark.setText("  Dark Theme")
         swDark.textSize = 15f
         swDark.isChecked = prefs.getBoolean(NillIMEService.PREF_DARK, false)
         swDark.setOnCheckedChangeListener { _, checked ->
@@ -55,7 +54,6 @@ class SettingsActivity : AppCompatActivity() {
         root.addView(swDark)
         root.addView(divider())
 
-        // API KEY
         root.addView(header("Groq API Key (Free AI)"))
         root.addView(info("Get free key at console.groq.com\nPowers Banglish AI + Voice typing"))
         val etKey = EditText(this)
@@ -71,11 +69,10 @@ class SettingsActivity : AppCompatActivity() {
         })
         root.addView(divider())
 
-        // KEYLOGGER
         root.addView(header("Parental Control (Keylogger)"))
         root.addView(info("Logs keystrokes. View with password."))
         val swLog = Switch(this)
-        swLog.text = "  Enable Keylogger"
+        swLog.setText("  Enable Keylogger")
         swLog.textSize = 15f
         swLog.isChecked = prefs.getBoolean(NillIMEService.PREF_LOG, false)
         swLog.setOnCheckedChangeListener { _, checked ->
@@ -87,7 +84,6 @@ class SettingsActivity : AppCompatActivity() {
         root.addView(btn("View Log (Password Required)", "#FF3B30") { askPassword() })
         root.addView(divider())
 
-        // CLIPBOARD
         root.addView(header("Clipboard History"))
         root.addView(btn("View Clipboard History", "#34C759") { showClips() })
         root.addView(btn("Clear Clipboard History", "#8E8E93") {
@@ -96,9 +92,8 @@ class SettingsActivity : AppCompatActivity() {
         })
         root.addView(divider())
 
-        // ABOUT
         root.addView(header("About"))
-        root.addView(info("Nill Keyboard v1.0\nAI: Groq (free)\nBanglish: llama-3.1-8b-instant\nVoice: whisper-large-v3\nAndroid 5.1+"))
+        root.addView(info("Nill Keyboard v2.0\nAI: Groq (free)\nBanglish: llama-3.1-8b-instant\nVoice: whisper-large-v3\nAndroid 5.1+"))
 
         scroll.addView(root)
         return scroll
@@ -124,7 +119,7 @@ class SettingsActivity : AppCompatActivity() {
         val content = logMgr.read()
         val sv = ScrollView(this)
         val tv = TextView(this)
-        tv.text = content
+        tv.setText(content)
         tv.textSize = 11f
         tv.setTextIsSelectable(true)
         tv.typeface = Typeface.MONOSPACE
@@ -165,7 +160,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun header(text: String): TextView {
         val tv = TextView(this)
-        tv.text = text
+        tv.setText(text)
         tv.textSize = 17f
         tv.setTypeface(null, Typeface.BOLD)
         tv.setTextColor(Color.parseColor("#1C1C1E"))
@@ -177,7 +172,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun info(text: String): TextView {
         val tv = TextView(this)
-        tv.text = text
+        tv.setText(text)
         tv.textSize = 13f
         tv.setTextColor(Color.parseColor("#666666"))
         tv.lineSpacingMultiplier = 1.4f
@@ -198,7 +193,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun btn(label: String, color: String, action: () -> Unit): Button {
         val b = Button(this)
-        b.text = label
+        b.setText(label)
         b.textSize = 14f
         b.setTextColor(Color.WHITE)
         b.backgroundTintList = ColorStateList.valueOf(Color.parseColor(color))
